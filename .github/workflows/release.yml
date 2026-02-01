@@ -1,8 +1,8 @@
-name: Deploy Yew SSR to Deno Deploy
+name: Deploy Yew site to GitHub Pages
 
 on:
   push:
-    branches: ["master"]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -12,36 +12,45 @@ permissions:
 
 jobs:
   deploy:
+    name: Rust project
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-
-      - name: Install Rust
-        uses: dtolnay/rust-toolchain@stable
-        with:
-          targets: wasm32-unknown-unknown
-
-      - name: Install wasm-pack
-        run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
-
+      
       - name: Rust Cache
         uses: Swatinem/rust-cache@v2
 
-      # 1. Build the Wasm library for Deno
+      - name: Install latest stable
+        uses: actions-rs/toolchain@v1
+        with:
+            toolchain: stable
+            target: wasm32-unknown-unknown
+            override: true
+      
+      - name: Install wasm-pack
+        run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
       - name: Build Wasm SSR Bundle
         run: wasm-pack build --target web --release
 
-      # 2. (Optional) If you still want a client-side build for hydration later
-      # - name: Install Trunk
-      #   uses: jetli/trunk-action@v0.5.1
-      # - name: Build Client Side
-      #   run: trunk build --release
+      - name: Download Tailwind CSS CLI (v3)
+        run: |
+          curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/v3.4.17/tailwindcss-linux-x64
+          chmod +x tailwindcss-linux-x64
 
-      # 3. Deploy to Deno Deploy
-      # We upload the whole project because Deno needs main.ts AND the ./pkg folder
+      - name: Build Tailwind CSS
+        run: |
+          ./tailwindcss-linux-x64 \
+            -i ./input.css \
+            -o ./static/style.css \
+            --minify
+
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "abhi"
+          project: "abhinandhs"
           entrypoint: "main.ts"
-          root: "." 
+          root: "."

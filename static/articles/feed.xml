@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Abhi's Feed</title>
+    <link>https://abhinandh-s.github.io/</link>
+    <description>Json feed for articles written by Abhinandh S</description>
+    <language>en-us</language>
+    
+      <item>
+        <title><![CDATA[Hello World]]></title>
+        <link>https://abhinandh-s.github.io/articles/hello-world</link>
+        <guid>https://abhinandh-s.github.io/articles/hello-world</guid>
+        <pubDate>2026-02-01T00:00:00Z</pubDate>
+        <description><![CDATA[My first blog entry.]]></description>
+        <content:encoded><![CDATA[<h1>Hello, World!</h1>
+<p>published: 2024-11-01</p>
+<p>Welcome to my first blog post! This content is written in Markdown and styled
+using GitHub Flavored Markdown.</p>
+<ul>
+<li>list item 01</li>
+<li>list item 02</li>
+<li>list item 03</li>
+</ul>
+<blockquote>
+<p>Block quote</p>
+</blockquote>
+<blockquote>
+<p>[!IMPORTANT]
+This is important</p>
+</blockquote>
+<pre style="background-color:#2b303b;"><code class="language-Rust"><span style="color:#96b5b4;">main</span><span style="color:#c0c5ce;">() {
+</span><span style="color:#c0c5ce;">    println!(&quot;</span><span style="color:#a3be8c;">hello world!</span><span style="color:#c0c5ce;">&quot;);
+</span><span style="color:#c0c5ce;">}
+</span></code></pre>
+<h2>Features</h2>
+<ul>
+<li><strong>Light and Dark Mode</strong> support</li>
+<li>Code highlighting:
+<pre style="background-color:#2b303b;"><code class="language-ts"><span style="color:#c0c5ce;">console.log(&quot;Hello, TypeScript!&quot;);
+</span></code></pre>
+</li>
+</ul>
+]]></content:encoded>
+      </item>
+
+  </channel>
+</rss>
