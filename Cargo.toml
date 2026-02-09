@@ -18,12 +18,10 @@ gray_matter = "0.3.2"
 walkdir = "2.5.0"
 comrak = "0.50"
 web-sys = { version = "0.3", features = ["Window", "Document", "Element"] }
-
-[build-dependencies]
-pulldown-cmark = "0.13"
-serde = { version = "1.0", features = ["derive"]}
+syntect = { version = "5.3.0", default-features = false, features = ["default-fancy"] }
 serde_json = "1.0"
-chrono = "0.4"
-gray_matter = "0.3.2"
-walkdir = "2.5.0"
-comrak = "0.50"
+
+[profile.dev]
+opt-level = 0 
+debug = 0 
+incremental = true

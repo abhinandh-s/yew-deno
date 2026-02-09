@@ -1,21 +1,16 @@
 use yew::prelude::*;
 
-const GIT_HUB_USERNAME: &str = "abhinandh-s";
-const SITE_REPO: &str = "abhinandhs.deno.dev";
-const X_USERNAME: &str = "abhinandh_s_";
-const EMAIL_ID: &str = "abhinandhsuby@proton.me";
-
 #[function_component(Footer)]
 pub fn footer() -> Html {
     html! {
-      <footer class="text-center clear-both">
+      <footer class="text-center clear-both p-2 mx-auto max-w-3xl">
       <div>
         <br />
         <br />
         <div class="flex justify-center">
           <a
             class="p-2"
-            href={format!("https://github.com/{}/", GIT_HUB_USERNAME)}
+            href={format!("https://github.com/{}", crate::GITHUB_USERNAME)}
             target="_blank"
           >
             <svg
@@ -34,7 +29,7 @@ pub fn footer() -> Html {
               </path>
             </svg>
           </a>
-          <a class="p-2" href={format!("mailto:{}", EMAIL_ID)}>
+          <a class="p-2" href="mailto:abhinandhsuby@proton.me">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -70,7 +65,7 @@ pub fn footer() -> Html {
               <circle cx="5" cy="19" r="1"></circle>
             </svg>
           </a>
-          <a class="p-2"  href={format!("https://x.com/{}", X_USERNAME)} target="_blank">
+          <a class="p-2" href="https://x.com/abhinandh_s_" target="_blank">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -111,8 +106,8 @@ pub fn footer() -> Html {
           {"and is available"} {" "}
           <a
             class="text-just-red"
-            href={format!("https://github.com/{}/{}", GIT_HUB_USERNAME, SITE_REPO)}
-            aria-label="Link to the source of this site"
+            href="https://github.com/abhinandh-s/abhinandh-s.github.io"
+            aria-label="GitHub Profile"
             target="_blank"
           >
           { "here" }

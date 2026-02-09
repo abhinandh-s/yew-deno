@@ -23,4 +23,9 @@ watch_css:
     tailwindcss -i ./static/input.css -o ./static/output.css --watch
 
 watch_wasm:
-    cargo watch -i .gitignore -s "wasm-pack build --target web"
+    cargo watch \
+      -i pkg \
+      -i target \
+      -i node_modules \
+      -s "wasm-pack build --target web"
+
