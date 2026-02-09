@@ -26,6 +26,5 @@ watch_wasm:
     cargo watch \
       -i pkg \
       -i target \
-      -i node_modules \
       -s "wasm-pack build --target web"
 

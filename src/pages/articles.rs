@@ -131,7 +131,7 @@ pub fn article_index() -> Html {
         <crate::components::header::Header />
         <div class="p-4 mx-auto max-w-3xl flex flex-col justify-center">
           <h1 class="font-bold text-5xl mt-12">
-            { "Abhi's Blog" }<span class="text-just-red">{ "." }</span>
+            { format!("{}'s Blog", crate::NAME) }<span class="text-just-red">{ "." }</span>
           </h1>
 
           // --- Search Bar ---
@@ -191,7 +191,7 @@ pub fn article(props: &ArticleProps) -> Html {
         {
             let document = window.document().unwrap();
             // Update Title
-            document.set_title(&format!("{} | Abhi's Blog", article.matter.title));
+            document.set_title(&format!("{} | {}'s Blog", article.matter.title, crate::NAME));
 
             // Update Description meta tag
             if let Ok(Some(meta)) = document.query_selector("meta[name='description']") {
